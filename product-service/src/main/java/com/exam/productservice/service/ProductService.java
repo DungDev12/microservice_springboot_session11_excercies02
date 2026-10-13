@@ -33,7 +33,7 @@ public class ProductService implements IProductService {
     }
 
     @Override
-    @CacheEvict(value = "products", key = "#id")
+    @CacheEvict(value = "products", key = "#request.id")
     public Product updateProductById(Long id, Product request) {
         Product product =  productRepository.findById(id)
                 .orElseThrow(() ->
