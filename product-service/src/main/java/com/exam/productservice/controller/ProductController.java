@@ -3,10 +3,7 @@ package com.exam.productservice.controller;
 import com.exam.productservice.entity.Product;
 import com.exam.productservice.service.ProductService;
 import lombok.RequiredArgsConstructor;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.PathVariable;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
 
@@ -25,5 +22,10 @@ public class ProductController {
     @GetMapping("/{id}")
     public Product getProductById(@PathVariable Long id) {
         return productService.getProductById(id);
+    }
+
+    @PutMapping("/{id}")
+    public Product updateProductById(@PathVariable Long id, @RequestBody Product request) {
+        return productService.updateProductById(id, request);
     }
 }
